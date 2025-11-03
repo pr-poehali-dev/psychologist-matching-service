@@ -70,7 +70,7 @@ const psychologists: Psychologist[] = [
     description: 'Основатель аналитической психологии, работает с архетипами, бессознательным и символами.',
     approach: 'Аналитическая психология',
     link: 'https://ru.wikipedia.org/wiki/Юнг,_Карл_Густав',
-    image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/aa/Carl_Jung_signature.jpg/440px-Carl_Jung_signature.jpg'
+    image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/0/0d/CGJung.jpg/440px-CGJung.jpg'
   },
   {
     name: 'Милтон Эриксон',
@@ -382,10 +382,20 @@ const Index = () => {
                     return (
                       <div key={result.name} className="bg-card rounded-lg p-5 border hover:shadow-md transition-all">
                         <div className="flex items-start gap-4 mb-3">
-                          <Avatar className="w-20 h-20 border-2 border-primary/20">
-                            <AvatarImage src={result.image} alt={result.name} />
-                            <AvatarFallback>{result.name.split(' ').map(n => n[0]).join('')}</AvatarFallback>
-                          </Avatar>
+                          <div className="relative w-20 h-20 rounded-full border-2 border-primary/20 overflow-hidden bg-muted flex-shrink-0">
+                            <img 
+                              src={result.image} 
+                              alt={result.name}
+                              className="w-full h-full object-cover"
+                              onError={(e) => {
+                                const target = e.target as HTMLImageElement;
+                                target.style.display = 'none';
+                              }}
+                            />
+                            <div className="absolute inset-0 flex items-center justify-center text-sm font-semibold text-muted-foreground">
+                              {result.name.split(' ').map(n => n[0]).join('')}
+                            </div>
+                          </div>
                           <div className="flex-1">
                             <div className="flex items-center justify-between mb-1">
                               <div className="flex items-center gap-2">
@@ -433,10 +443,20 @@ const Index = () => {
                       <AccordionTrigger className="hover:no-underline">
                         <div className="flex items-center justify-between w-full pr-4">
                           <div className="flex items-center gap-3">
-                            <Avatar className="w-10 h-10">
-                              <AvatarImage src={result.image} alt={result.name} />
-                              <AvatarFallback>{result.name.split(' ').map(n => n[0]).join('')}</AvatarFallback>
-                            </Avatar>
+                            <div className="relative w-10 h-10 rounded-full overflow-hidden bg-muted flex-shrink-0">
+                              <img 
+                                src={result.image} 
+                                alt={result.name}
+                                className="w-full h-full object-cover"
+                                onError={(e) => {
+                                  const target = e.target as HTMLImageElement;
+                                  target.style.display = 'none';
+                                }}
+                              />
+                              <div className="absolute inset-0 flex items-center justify-center text-xs font-semibold text-muted-foreground">
+                                {result.name.split(' ').map(n => n[0]).join('')}
+                              </div>
+                            </div>
                             <span className="font-semibold">{result.name}</span>
                             <Badge variant="outline">{result.approach}</Badge>
                           </div>
@@ -446,10 +466,20 @@ const Index = () => {
                       <AccordionContent>
                         <div className="pt-2 space-y-3">
                           <div className="flex items-start gap-4">
-                            <Avatar className="w-16 h-16 border-2 border-primary/10">
-                              <AvatarImage src={result.image} alt={result.name} />
-                              <AvatarFallback>{result.name.split(' ').map(n => n[0]).join('')}</AvatarFallback>
-                            </Avatar>
+                            <div className="relative w-16 h-16 rounded-full border-2 border-primary/10 overflow-hidden bg-muted flex-shrink-0">
+                              <img 
+                                src={result.image} 
+                                alt={result.name}
+                                className="w-full h-full object-cover"
+                                onError={(e) => {
+                                  const target = e.target as HTMLImageElement;
+                                  target.style.display = 'none';
+                                }}
+                              />
+                              <div className="absolute inset-0 flex items-center justify-center text-xs font-semibold text-muted-foreground">
+                                {result.name.split(' ').map(n => n[0]).join('')}
+                              </div>
+                            </div>
                             <p className="text-muted-foreground flex-1">{result.description}</p>
                           </div>
                           <Progress value={result.percentage} className="h-2" />

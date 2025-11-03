@@ -13,9 +13,9 @@ interface ResultsScreenProps {
 }
 
 const getCompatibilityLevel = (percentage: number) => {
-  if (percentage >= 60) return { label: 'Максимальная совместимость', color: 'bg-green-500' };
-  if (percentage >= 40) return { label: 'Хорошая совместимость', color: 'bg-yellow-500' };
-  return { label: 'Низкая совместимость', color: 'bg-gray-400' };
+  if (percentage >= 60) return { label: 'Максимальная совместимость', color: 'bg-secondary text-white' };
+  if (percentage >= 40) return { label: 'Хорошая совместимость', color: 'bg-accent text-accent-foreground' };
+  return { label: 'Низкая совместимость', color: 'bg-muted text-muted-foreground' };
 };
 
 export const ResultsScreen = ({ results, topMatches, onRestart }: ResultsScreenProps) => {

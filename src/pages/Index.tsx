@@ -48,7 +48,7 @@ const Index = () => {
   const topMatches = results.filter(r => r.percentage >= 40);
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-background via-secondary/30 to-accent/20">
+    <div className="min-h-screen bg-gradient-to-br from-background via-secondary/10 to-accent/5">
       <div className="container max-w-4xl py-12 px-4">
         {stage === 'intro' && (
           <IntroScreen onStartTest={startTest} />

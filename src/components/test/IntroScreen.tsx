@@ -13,7 +13,7 @@ export const IntroScreen = ({ onStartTest }: IntroScreenProps) => {
         <div className="inline-flex items-center justify-center w-20 h-20 rounded-full bg-primary/20 mb-6">
           <Icon name="Heart" size={40} className="text-primary" />
         </div>
-        <h1 className="text-5xl font-bold mb-4 bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
+        <h1 className="text-5xl font-bold mb-4 bg-gradient-to-r from-primary via-secondary to-accent bg-clip-text text-transparent">
           Какой психолог тебе подходит?
         </h1>
         <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
@@ -60,7 +60,7 @@ export const IntroScreen = ({ onStartTest }: IntroScreenProps) => {
       </Card>
 
       <div className="text-center">
-        <Button size="lg" onClick={onStartTest} className="text-lg px-8 py-6 hover:scale-105 transition-transform">
+        <Button size="lg" onClick={onStartTest} className="text-lg px-8 py-6 hover:scale-105 transition-transform bg-accent hover:bg-accent/90 text-accent-foreground">
           Начать тест
           <Icon name="ArrowRight" size={20} className="ml-2" />
         </Button>

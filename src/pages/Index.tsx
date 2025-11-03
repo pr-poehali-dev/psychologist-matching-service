@@ -4,6 +4,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 import { Progress } from '@/components/ui/progress';
 import { Badge } from '@/components/ui/badge';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
+import { Avatar, AvatarImage, AvatarFallback } from '@/components/ui/avatar';
 import Icon from '@/components/ui/icon';
 
 interface Psychologist {
@@ -11,6 +12,7 @@ interface Psychologist {
   description: string;
   approach: string;
   link: string;
+  image: string;
 }
 
 const psychologists: Psychologist[] = [
@@ -18,61 +20,71 @@ const psychologists: Psychologist[] = [
     name: 'Карл Роджерс',
     description: 'Гуманистический психолог, развил клиент-центрированное консультирование. Фокус на эмпатии, принятии и поддержке.',
     approach: 'Эмпатия и принятие',
-    link: 'https://ru.wikipedia.org/wiki/Роджерс,_Карл'
+    link: 'https://ru.wikipedia.org/wiki/Роджерс,_Карл',
+    image: 'https://upload.wikimedia.org/wikipedia/en/2/25/Carl_Ransom_Rogers.jpg'
   },
   {
     name: 'Ирвин Ялом',
     description: 'Экзистенциальный психотерапевт, работает с глубокими вопросами смысла жизни и групповой динамикой.',
     approach: 'Экзистенциальная терапия',
-    link: 'https://ru.wikipedia.org/wiki/Ялом,_Ирвин'
+    link: 'https://ru.wikipedia.org/wiki/Ялом,_Ирвин',
+    image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/Irvin_Yalom_2013_%28cropped%29.jpg/440px-Irvin_Yalom_2013_%28cropped%29.jpg'
   },
   {
     name: 'Карен Хорни',
     description: 'Психоаналитик и гуманист, фокус на тревоге, межличностных отношениях и внутренней свободе.',
     approach: 'Неопсихоанализ',
-    link: 'https://ru.wikipedia.org/wiki/Хорни,_Карен'
+    link: 'https://ru.wikipedia.org/wiki/Хорни,_Карен',
+    image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/3/34/Karen_Horney_1938.jpg/440px-Karen_Horney_1938.jpg'
   },
   {
     name: 'Альберт Эллис',
     description: 'Создатель рационально-эмоциональной терапии, работает с убеждениями и логикой клиента.',
     approach: 'Рационально-эмоциональная терапия',
-    link: 'https://ru.wikipedia.org/wiki/Эллис,_Альберт'
+    link: 'https://ru.wikipedia.org/wiki/Эллис,_Альберт',
+    image: 'https://upload.wikimedia.org/wikipedia/en/thumb/6/6d/Albert_Ellis_%281913-2007%29.jpg/440px-Albert_Ellis_%281913-2007%29.jpg'
   },
   {
     name: 'Аарон Бек',
     description: 'Основатель когнитивной терапии, помогает выявлять и корректировать негативные автоматические мысли.',
     approach: 'Когнитивная терапия',
-    link: 'https://ru.wikipedia.org/wiki/Бек,_Аарон'
+    link: 'https://ru.wikipedia.org/wiki/Бек,_Аарон',
+    image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/3/35/Aaron_Beck_2016.jpg/440px-Aaron_Beck_2016.jpg'
   },
   {
     name: 'Эрик Берн',
     description: 'Создатель транзактного анализа, помогает понять роли и сценарии межличностного поведения.',
     approach: 'Транзактный анализ',
-    link: 'https://ru.wikipedia.org/wiki/Берн,_Эрик'
+    link: 'https://ru.wikipedia.org/wiki/Берн,_Эрик',
+    image: 'https://upload.wikimedia.org/wikipedia/en/9/9d/Eric_Berne_1969.jpg'
   },
   {
     name: 'Виктор Франкл',
     description: 'Основатель логотерапии, помогает клиентам находить смысл и цель в жизни.',
     approach: 'Логотерапия',
-    link: 'https://ru.wikipedia.org/wiki/Франкл,_Виктор'
+    link: 'https://ru.wikipedia.org/wiki/Франкл,_Виктор',
+    image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/1/12/Viktor_Frankl2.jpg/440px-Viktor_Frankl2.jpg'
   },
   {
     name: 'Карл Юнг',
     description: 'Основатель аналитической психологии, работает с архетипами, бессознательным и символами.',
     approach: 'Аналитическая психология',
-    link: 'https://ru.wikipedia.org/wiki/Юнг,_Карл_Густав'
+    link: 'https://ru.wikipedia.org/wiki/Юнг,_Карл_Густав',
+    image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/a/aa/Carl_Jung_signature.jpg/440px-Carl_Jung_signature.jpg'
   },
   {
     name: 'Милтон Эриксон',
     description: 'Психиатр и гипнотерапевт, использует метафоры и творческий подход для работы с бессознательным.',
     approach: 'Эриксоновский гипноз',
-    link: 'https://ru.wikipedia.org/wiki/Эриксон,_Милтон'
+    link: 'https://ru.wikipedia.org/wiki/Эриксон,_Милтон',
+    image: 'https://upload.wikimedia.org/wikipedia/en/8/86/Milton_H._Erickson.jpg'
   },
   {
     name: 'Фриц Перлз',
     description: 'Основатель гештальт-терапии, работает с осознанностью, эмоциями и телесными ощущениями.',
     approach: 'Гештальт-терапия',
-    link: 'https://ru.wikipedia.org/wiki/Перлз,_Фриц'
+    link: 'https://ru.wikipedia.org/wiki/Перлз,_Фриц',
+    image: 'https://upload.wikimedia.org/wikipedia/en/8/89/Fritz_perls.jpg'
   }
 ];
 
@@ -369,17 +381,23 @@ const Index = () => {
                     const compat = getCompatibilityLevel(result.percentage);
                     return (
                       <div key={result.name} className="bg-card rounded-lg p-5 border hover:shadow-md transition-all">
-                        <div className="flex items-start justify-between mb-3">
+                        <div className="flex items-start gap-4 mb-3">
+                          <Avatar className="w-20 h-20 border-2 border-primary/20">
+                            <AvatarImage src={result.image} alt={result.name} />
+                            <AvatarFallback>{result.name.split(' ').map(n => n[0]).join('')}</AvatarFallback>
+                          </Avatar>
                           <div className="flex-1">
-                            <div className="flex items-center gap-2 mb-1">
-                              {idx === 0 && <Icon name="Trophy" size={20} className="text-yellow-500" />}
-                              <h3 className="text-xl font-semibold">{result.name}</h3>
+                            <div className="flex items-center justify-between mb-1">
+                              <div className="flex items-center gap-2">
+                                {idx === 0 && <Icon name="Trophy" size={20} className="text-yellow-500" />}
+                                <h3 className="text-xl font-semibold">{result.name}</h3>
+                              </div>
+                              <div className="text-right">
+                                <div className="text-3xl font-bold text-primary">{result.percentage}%</div>
+                                <div className="text-xs text-muted-foreground">совместимость</div>
+                              </div>
                             </div>
                             <Badge variant="secondary" className="mb-2">{result.approach}</Badge>
-                          </div>
-                          <div className="text-right">
-                            <div className="text-3xl font-bold text-primary">{result.percentage}%</div>
-                            <div className="text-xs text-muted-foreground">совместимость</div>
                           </div>
                         </div>
                         <p className="text-muted-foreground mb-3">{result.description}</p>
@@ -415,6 +433,10 @@ const Index = () => {
                       <AccordionTrigger className="hover:no-underline">
                         <div className="flex items-center justify-between w-full pr-4">
                           <div className="flex items-center gap-3">
+                            <Avatar className="w-10 h-10">
+                              <AvatarImage src={result.image} alt={result.name} />
+                              <AvatarFallback>{result.name.split(' ').map(n => n[0]).join('')}</AvatarFallback>
+                            </Avatar>
                             <span className="font-semibold">{result.name}</span>
                             <Badge variant="outline">{result.approach}</Badge>
                           </div>
@@ -423,7 +445,13 @@ const Index = () => {
                       </AccordionTrigger>
                       <AccordionContent>
                         <div className="pt-2 space-y-3">
-                          <p className="text-muted-foreground">{result.description}</p>
+                          <div className="flex items-start gap-4">
+                            <Avatar className="w-16 h-16 border-2 border-primary/10">
+                              <AvatarImage src={result.image} alt={result.name} />
+                              <AvatarFallback>{result.name.split(' ').map(n => n[0]).join('')}</AvatarFallback>
+                            </Avatar>
+                            <p className="text-muted-foreground flex-1">{result.description}</p>
+                          </div>
                           <Progress value={result.percentage} className="h-2" />
                           <a
                             href={result.link}
